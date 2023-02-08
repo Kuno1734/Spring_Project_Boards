@@ -1,0 +1,33 @@
+package com.board.board.dto;
+
+import com.board.board.entity.Board;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDateTime;
+
+@Getter
+@RequiredArgsConstructor
+public class BoardResponseDto {
+
+    private Long id;
+    private String title;
+    private String username;
+    private String contents;
+
+    private LocalDateTime createdAt;
+    private LocalDateTime modifiedAt;
+
+    public BoardResponseDto(Board board){
+        this.id = board.getId();
+        this.title = board.getTitle();
+        this.contents = board.getContents();
+        this.username = board.getUsername();
+        this.createdAt = board.getCreatedAt();
+        this.modifiedAt = board.getModifiedAt();
+
+    }
+
+}
+
